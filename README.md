@@ -84,6 +84,26 @@ rhn_channel { 'centos6-scl-x86_64':
 }
 </pre>
 
+Hiera Example:
+
+<pre>
+---
+classes:
+  - rhnreg_ks
+
+rhnreg_ks::rhn_register:
+  'https://xmlrpc.rhn.redhat.com/XMLRPC':
+    activationkeys:
+      - '888888888eeeeeee888888eeeeee8888'
+    ssl_ca_cert: '/usr/share/rhn/RHN-ORG-TRUSTED-SSL-CERT'
+    force: true
+
+ rhnreg_ks::rhn_channel:
+   'centos6-scl-x86_64':
+     ensure: present
+     username: 'myusername'
+     password: 'mypassword'
+</pre>
 
 ## Installing
 
